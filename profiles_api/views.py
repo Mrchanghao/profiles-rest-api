@@ -33,7 +33,35 @@ class HelloApiView(APIView):
 
         if serializer.is_valid():
             name = serializer.validated_data.get('name')
-            message = f'hello {name}'
+            message = f'안녕하십니끼??? {name}'
             return Response({'message': message})
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, pk=None):
+        '''
+        put method
+        pk --> primary key
+        :param request:
+        :return: response
+        Handle update object
+        '''
+        return Response({'Method': 'PUT'})
+
+    def patch(self, request, pk=None):
+        '''
+
+        :param request:
+        :param pk:
+        :return:
+        '''
+        return Response({'method': 'PATCH'})
+
+    def delete(self, request, pk=None):
+        '''
+        delete request
+        :param request:
+        :param pk:
+        :return:
+        '''
+        return Response({'method': 'DELETE'})
