@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from rest_framework import viewsets
 from profiles_api import serializers
 
 # Create your views here.
@@ -65,3 +65,20 @@ class HelloApiView(APIView):
         :return:
         '''
         return Response({'method': 'DELETE'})
+
+
+class HelloViewSet(viewsets.ViewSet):
+    '''
+    test api viewset
+    '''
+    def list(self, request):
+        '''
+        :param request:
+        :return: a hello message
+        '''
+        a_viewset = [
+            'Users actions (list, create, retrieve, update, partial_update)',
+            '자동 map url using routers',
+            '적은 코드로 많은 기능 제공'
+        ]
+        return Response({'message': 'hello', 'a view_set': a_viewset})
